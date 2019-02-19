@@ -1,5 +1,7 @@
 #### 引脚复用配置
+
 arch/arm/boot/dts/IDH60/msm8953-pinctrl.dtsi
+
 ```
 &soc {
 	tlmm: pinctrl@1000000 {
@@ -134,7 +136,9 @@ arch/arm/boot/dts/IDH60/msm8953-pinctrl.dtsi
 ```	
 	
 #### I2C参数配置
+
 msm8953.dtsi
+
 ```
 &soc {
     #address-cells = <1>; 
@@ -251,7 +255,9 @@ msm8953.dtsi
 ```
 	
 #### 添加i2c设备
+
 arch/arm/boot/dts/IDH60/msm8953-mtp.dtsi
+
 ```
 	&i2c_2 {
        bq@55{

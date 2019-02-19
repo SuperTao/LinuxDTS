@@ -1,5 +1,7 @@
 #### 引脚复用
+
 arch/arm/boot/dts/IDH60/msm8953-pinctrl.dtsi
+
 ```
         spi3 {
             spi3_default: spi3_default {
@@ -45,8 +47,11 @@ arch/arm/boot/dts/IDH60/msm8953-pinctrl.dtsi
                     bias-disable = <0>;
                 };
 ```				
+
 #### SPI参数配置				
+
 msm8953.dtsi
+
 ```	
 	spi_3: spi@78b7000 { /* BLSP1 QUP3 */
         compatible = "qcom,spi-qup-v2";
@@ -78,6 +83,7 @@ msm8953.dtsi
 #### SPI总线上的设备
 
 msm8953-mtp.dtsi	
+
 ```
 &spi_3 {  BLSP1 QUP3 
     spi-max-frequency = <16000000>;

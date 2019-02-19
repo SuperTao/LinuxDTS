@@ -1,6 +1,8 @@
 ## 设备树GPIO初始化
 #### 配置引脚的复用
+
 msm8953-pinctrl.dtsi
+
 ```
 &soc {
     tlmm: pinctrl@1000000 {
@@ -40,8 +42,11 @@ msm8953-pinctrl.dtsi
             };   
         };
 ```
+
 #### 配置gpio的参数
+
 msm8953-mtp.dtsi
+
 ```
 		gpio_keys {
         compatible = "gpio-keys";
@@ -79,12 +84,17 @@ msm8953-mtp.dtsi
         };  
     };
 ```
+
 ## 驱动注册
+
 #### 主要内容
+
 * 实现设备树节点的解读
+
 * 设置gpio状态
 
 drivers/input/keyboard/gpio_keys.c
+
 ```
 static int __init gpio_keys_init(void)
 {
@@ -101,16 +111,22 @@ static struct platform_driver gpio_keys_device_driver = {
 ​        .of_match_table = of_match_ptr(gpio_keys_of_match),		// 匹配表
 ​    }
 };
+
 ```
+
 of_match_ptr中的字符串需要与设备树中的名称相同才能匹配成功
+
 ```
 static const struct of_device_id gpio_keys_of_match[] = {
 ​    { .compatible = "gpio-keys", },
 ​    { }, 
 };
 MODULE_DEVICE_TABLE(of, gpio_keys_of_match);
-​```
+
+```
+
 匹配成功之后，调用probe函数
+
 ```
 static int gpio_keys_probe(struct platform_device *pdev)
 {
@@ -247,7 +263,9 @@ err_setup_key:
 	return error;
 }
 ```
+
 #### 设备树参数解读
+
 ```
 /*
  * Translate OpenFirmware node properties into platform_data
@@ -342,7 +360,9 @@ gpio_keys_get_devtree_pdata(struct device *dev)
 	return pdata;
 }
 ```
+
 #### gpio按键设置
+
 ```
 static int gpio_keys_setup_key(struct platform_device *pdev,
 				struct input_dev *input,

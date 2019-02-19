@@ -1,5 +1,7 @@
 #### 引脚复用配置
+
 arch/arm/boot/dts/IDH60/msm8953-pinctrl.dtsi
+
 ```
 &soc {
     tlmm: pinctrl@1000000 {
@@ -40,8 +42,11 @@ arch/arm/boot/dts/IDH60/msm8953-pinctrl.dtsi
 
         };   
 ```
+
 #### UART参数配置
+
 msm8953.dtsi
+
 ```
     blsp1_uart0: serial@78af000 {
         compatible = "qcom,msm-lsuart-v14";
@@ -127,6 +132,7 @@ msm8953.dtsi
 ```
 
 msm8953-mtp.dtsi
+
 ```
 	&blsp1_uart0 {
     status = "ok";
